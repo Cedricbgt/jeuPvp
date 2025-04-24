@@ -1,0 +1,40 @@
+/* Style du plateau */
+#board {
+  display: grid;
+}
+.cell {
+  width: 64px;
+  height: 64px;
+  border: 1px solid #888;
+  position: relative;
+}
+
+/* Styles des sprites joueurs */
+.player {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 0;
+  left: 0;
+  /* le background-image est défini par joueur */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.player.player1 {
+  /* sprite ogre idle */
+  background-image: url("../assets/images/ogre_idle.png");
+}
+.player.player2 {
+  /* sprite Valkyrie idle */
+  background-image: url("../assets/images/Valkyrie_Idle.png");
+}
+
+/* Style pour effet de sort */
+.spell-effect {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,0,0,0.6);
+  pointer-events: none;
+}
