@@ -9,6 +9,7 @@ export default class Board {
   }
 
   init() {
+    this.container.innerHTML = '';
     this.container.style.gridTemplateColumns = `repeat(${this.width}, 64px)`;
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
@@ -28,6 +29,14 @@ export default class Board {
     players.forEach((player, index) => {
       const sprite = document.createElement('div');
       sprite.classList.add('player', `player${index+1}`);
+      // Utilisation des images chargées dynamiquement
+      if (window.loadedAssets) {
+        if (index === 0 && window.loadedAssets.ogre) {
+          sprite.style.backgroundImage = `url('${window.loadedAssets.ogre.src}')`;
+        } else if (index === 1 && window.loadedAssets.valkyrie) {
+          sprite.style.backgroundImage = `url('${window.loadedAssets.valkyrie.src}')`;
+        }
+      }
       const cell = this.container.querySelector(`.cell[data-x="${player.position.x}"][data-y="${player.position.y}"]`);
       if (cell) {
         // Ajout de la barre de vie flottante
@@ -49,6 +58,7 @@ export default class Board {
         const obsDiv = document.createElement('div');
         obsDiv.className = 'obstacle';
         obsDiv.title = obstacle.type;
+        // On n'utilise plus loadedAssets.rock, on garde le fond CSS
         cell.appendChild(obsDiv);
       }
     });
