@@ -30,4 +30,4 @@ Un jeu de stratégie en tour par tour où deux joueurs s'affrontent sur une gril
 
 1. Clonez ce dépôt :
    ```bash
-   git clone <url-du-repo>
+   git clone https://github.com/Cedricbgt/jeuPvp.git
